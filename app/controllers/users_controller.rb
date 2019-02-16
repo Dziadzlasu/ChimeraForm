@@ -1,17 +1,10 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
-  def index
-  end
-
-  def show
-  end
-
   def new
     @user = User.new
     @user.build_address
-    # @user.build_company
-  end
-
-  def edit
+    @user.build_company.build_address
   end
 
   def create
@@ -26,14 +19,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def update
-  end
-
-  def destroy
-  end
-
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :date_of_birth, :phone_number,
-                                 address_attributes: [:street, :city, :zip_code, :country])
+                                 address_attributes: %i[street city zip_code country],
+                                 company_attributes: [:name, address_attributes: %i[street city zip_code country]])
   end
 end

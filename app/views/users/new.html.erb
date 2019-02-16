@@ -49,6 +49,28 @@
     <% end %>
   </div>
 
+  <div class='field'>
+    <h3>Company</h3>
+    <%= f.fields_for :company do |c| %>
+      <%= c.label :name %><br>
+      <%= c.text_field :name %>
+      <p>
+        <%= c.fields_for :address do |a| %>
+          <%= a.label :street %><br>
+          <%= a.text_field :street %>
+          <p>
+          <%= a.label :city %><br>
+          <%= a.text_field :city %>
+          <p>
+          <%= a.label :zip_code %><br>
+          <%= a.text_field :zip_code %>
+          <p>
+          <%= a.label :country %><br>
+          <%= a.text_field :country %>
+        <% end %>
+    <% end %>
+  </div>
+
   <div class='actions'>
     <%= f.submit 'Register'%>*Required fields
   </div>
