@@ -1,0 +1,55 @@
+<h1>Chimera Registration Form</h1>
+
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div id='error_explanation'>
+      <h2>
+        <%= pluralize(@user.errors.count, 'error') %> prohibited
+        this user from being registered:
+      </h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+      </div>
+  <% end %>
+  <div class='field'>
+    <%= f.label :first_name %>*<br>
+    <%= f.text_field :first_name %>
+    <p>
+    <%= f.label :last_name %>*<br>
+    <%= f.text_field :last_name %>
+    <p>
+    <%= f.label 'email address' %>*<br>
+    <%= f.text_field :email %>
+    <p>
+    <%= f.label :date_of_birth %><br>
+    <%= f.date_field :date_of_birth %>
+    <p>
+    <%= f.label :phone_number %><br>
+    <%= f.text_field :phone_number %>
+  </div>
+
+  <div class='field'>
+    <h3>Address</h3>
+    <%= f.fields_for :address do |a| %>
+      <%= a.label :street %>*<br>
+      <%= a.text_field :street %>
+      <p>
+      <%= a.label :city %>*<br>
+      <%= a.text_field :city %>
+      <p>
+      <%= a.label :zip_code %>*<br>
+      <%= a.text_field :zip_code %>
+      <p>
+      <%= a.label :country %>*<br>
+      <%= a.text_field :country %>
+    <% end %>
+  </div>
+
+  <div class='actions'>
+    <%= f.submit 'Register'%>*Required fields
+  </div>
+<% end %>
