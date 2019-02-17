@@ -12,7 +12,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to root_path, notice: 'User was successfully registered.' }
+        format.html do
+          redirect_to root_path, notice: 'User was successfully registered.'
+        end
       else
         format.html { render :new }
       end
