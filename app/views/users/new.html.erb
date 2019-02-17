@@ -1,5 +1,7 @@
 <h1>Chimera Registration Form</h1>
 
+<p id='notice'><%= notice %></p>
+
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
     <div id='error_explanation'>
@@ -16,57 +18,74 @@
       </div>
   <% end %>
   <div class='field'>
-    <%= f.label :first_name %>*<br>
-    <%= f.text_field :first_name %>
     <p>
-    <%= f.label :last_name %>*<br>
-    <%= f.text_field :last_name %>
+      <%= f.label :first_name %>*<br>
+      <%= f.text_field :first_name %>
+    </p>
     <p>
-    <%= f.label 'email address' %>*<br>
-    <%= f.text_field :email %>
+      <%= f.label :last_name %>*<br>
+      <%= f.text_field :last_name %>
+    </p>
     <p>
-    <%= f.label :date_of_birth %><br>
-    <%= f.date_field :date_of_birth %>
+      <%= f.label 'email address' %>*<br>
+      <%= f.text_field :email %>
+    </p>
     <p>
-    <%= f.label :phone_number %><br>
-    <%= f.text_field :phone_number %>
+      <%= f.label :date_of_birth %><br>
+      <%= f.date_field :date_of_birth %>
+    </p>
+    <p>
+      <%= f.label :phone_number %><br>
+      <%= f.text_field :phone_number %>
+    </p>
   </div>
 
   <div class='field'>
     <h3>Address</h3>
     <%= f.fields_for :address do |a| %>
-      <%= a.label :street %>*<br>
-      <%= a.text_field :street %>
       <p>
-      <%= a.label :city %>*<br>
-      <%= a.text_field :city %>
+        <%= a.label :street %>*<br>
+        <%= a.text_field :street %>
+      </p>
       <p>
-      <%= a.label :zip_code %>*<br>
-      <%= a.text_field :zip_code %>
+        <%= a.label :city %>*<br>
+        <%= a.text_field :city %>
+      </p>
       <p>
-      <%= a.label :country %>*<br>
-      <%= a.text_field :country %>
+        <%= a.label :zip_code %>*<br>
+        <%= a.text_field :zip_code %>
+      </p>
+      <p>
+        <%= a.label :country %>*<br>
+        <%= a.text_field :country %>
+      </p>
     <% end %>
   </div>
 
   <div class='field'>
     <h3>Company</h3>
     <%= f.fields_for :company do |c| %>
-      <%= c.label :name %><br>
-      <%= c.text_field :name %>
       <p>
+        <%= c.label :name %><br>
+        <%= c.text_field :name %>
+      </p>
         <%= c.fields_for :address do |a| %>
-          <%= a.label :street %><br>
-          <%= a.text_field :street %>
           <p>
-          <%= a.label :city %><br>
-          <%= a.text_field :city %>
+            <%= a.label :street %><br>
+            <%= a.text_field :street %>
+          </p>
           <p>
-          <%= a.label :zip_code %><br>
-          <%= a.text_field :zip_code %>
+            <%= a.label :city %><br>
+            <%= a.text_field :city %>
+          </p>
           <p>
-          <%= a.label :country %><br>
-          <%= a.text_field :country %>
+            <%= a.label :zip_code %><br>
+            <%= a.text_field :zip_code %>
+          </p>
+          <p>
+            <%= a.label :country %><br>
+            <%= a.text_field :country %>
+          </p>
         <% end %>
     <% end %>
   </div>
