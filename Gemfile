@@ -42,6 +42,10 @@ gem 'countries'
 # Adds zipcode / postal code validation support to Rails (ActiveModel), considering postal code formats for mostly every country.
 gem 'validates_zipcode'
 
+# Global phone number validation gem based on Google's libphonenumber library.
+gem 'telephone_number'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

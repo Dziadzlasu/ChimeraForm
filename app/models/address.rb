@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Address < ApplicationRecord
   validates :street, :city, presence: true
   validates :zip_code, presence: true, zipcode: true
