@@ -45,6 +45,8 @@ gem 'validates_zipcode'
 # Global phone number validation gem based on Google's libphonenumber library.
 gem 'telephone_number'
 
+# Complete validation of dates, times and datetimes for Rails 5.0.x and ActiveModel.
+gem 'validates_timeliness'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
