@@ -76,6 +76,11 @@ RSpec.describe Address, type: :model do
           user.valid?
           expect(user.errors.full_messages).not_to include('Company address zip code needs country input to validate format')
         end
+
+        it "doesn't return error if zip code and country are blank" do
+          user.valid?
+          expect(user.errors.full_messages).not_to include('Company address zip code needs country input to validate format')
+        end
       end
     end
 

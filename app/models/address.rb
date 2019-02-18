@@ -28,6 +28,7 @@ class Address < ApplicationRecord
   end
 
   def zipcode_with_country
+    return if zip_code.blank? && country.blank?
     return if country.present? && zip_code.blank?
     return if zip_code.present? && country.present?
 
