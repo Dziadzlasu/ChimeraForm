@@ -1,24 +1,6 @@
-# README
+# REGISTRATION FORM
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This form validates the entered data using the real formats in use by the country specified in the address.  
+Please make sure you are using the right data formats when registering.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+For performance and presentation purposes, supported country names are limited to **english only**.
