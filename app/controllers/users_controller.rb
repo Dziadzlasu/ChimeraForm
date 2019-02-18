@@ -22,6 +22,8 @@ class UsersController < ApplicationController
     end
   end
 
+  private
+
   def redirect_to_form
     redirect_to root_path, alert: 'Use only english country names!'
   end

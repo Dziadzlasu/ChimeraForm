@@ -15,6 +15,6 @@ class User < ApplicationRecord
 
   def country_alpha2
     c = ISO3166::Country.find_country_by_name(address.country)
-    c.alpha2.to_sym
+    return c.alpha2.to_sym unless c.nil?
   end
 end
