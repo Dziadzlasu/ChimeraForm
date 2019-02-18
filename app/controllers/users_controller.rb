@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  rescue_from NoMethodError, with: :redirect_to_form
   def new
     @user = User.new
     @user.build_address
@@ -19,6 +20,10 @@ class UsersController < ApplicationController
         format.html { render :new }
       end
     end
+  end
+
+  def redirect_to_form
+    redirect_to root_path, alert: 'Use only english country names!'
   end
 
   def user_params

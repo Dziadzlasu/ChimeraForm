@@ -1,6 +1,7 @@
 <h1>Chimera Registration Form</h1>
 
 <p id='notice'><%= notice %></p>
+<p id='alert' style='color:red'><%= alert %></p>
 
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
