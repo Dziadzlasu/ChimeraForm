@@ -8,6 +8,7 @@ class Address < ApplicationRecord
                                 inclusion: { in: ISO3166::Country.all.map(&:name).concat(ISO3166::Country.all.map(&:names)).flatten }
   end
 
+  validate :zipcode_with_country
   validates :zip_code, allow_blank: true, zipcode: true
   validates :country, allow_blank: true,
                       inclusion: { in: ISO3166::Country.all.map(&:name).concat(ISO3166::Country.all.map(&:names)).flatten }
@@ -24,5 +25,12 @@ class Address < ApplicationRecord
 
   def company?
     company.present?
+  end
+
+  def zipcode_with_country
+    return if country.present? && zip_code.blank?
+    return if zip_code.present? && country.present?
+
+    errors.add(:zip_code, 'needs country input to validate format')
   end
 end

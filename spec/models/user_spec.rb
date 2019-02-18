@@ -14,17 +14,17 @@ RSpec.describe User, type: :model do
     it { should_not allow_value('email').for(:email) }
     it { should_not allow_value('@address.com').for(:email) }
     it { should_not allow_value('address.com').for(:email) }
-    it {
+    it do
       should allow_value('', nil, '10.02.2019', '10-02-2019',
-                        '10/02/2019', '2018-02-28', '2018/02/28').for(:date_of_birth)
-    }
-    it {
+                         '10/02/2019', '2018-02-28', '2018/02/28').for(:date_of_birth)
+    end
+    it do
       should_not allow_value('30/02/2019', '10.02.2030',
-                            '10.02', '02-2030').for(:date_of_birth)
-    }
+                             '10.02', '02-2030').for(:date_of_birth)
+    end
     it { should allow_value(nil, '').for(:phone_number) }
 
-    context 'with phone number and valid country input' do
+    context 'with valid country input' do
       it 'validates international mobile phone number format for US' do
         user = User.new
         user.phone_number = '1-541-754-3010'

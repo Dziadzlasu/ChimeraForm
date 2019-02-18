@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Company < ApplicationRecord
-  validates :name, allow_blank: true, length: { maximum: 100 }
+  validates :name, allow_blank: true, length: { maximum: 200 }
 
   belongs_to :user
   has_one :address
